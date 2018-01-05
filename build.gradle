@@ -9,10 +9,16 @@ buildscript {
     }
 }
 
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '1.2.10'
+    id 'java-gradle-plugin'
+}
+
 group 'com.github.lukasriedler'
 version '0.1'
 
 apply plugin: 'kotlin'
+
 
 repositories {
     mavenCentral()
@@ -20,6 +26,12 @@ repositories {
 
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    compile "commons-io:commons-io:+"
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.9.2'
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.9.2'
+    compile "com.fasterxml.jackson.module:jackson-module-kotlin:2.9.2"
+    compileOnly gradleApi()
+    testCompileOnly gradleTestKit()
 }
 
 compileKotlin {
